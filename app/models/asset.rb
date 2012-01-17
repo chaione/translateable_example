@@ -3,7 +3,7 @@ class Asset < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   has_many :translations
 
-  module Translateable
+  module Translatable
     extend ActiveSupport::Concern
 
     def current_translation_code
@@ -39,7 +39,7 @@ class Asset < ActiveRecord::Base
     end
   end
 
-  include Translateable
+  include Translatable
 
   translate :name, :default => "ES", :class_name => :medical_translations
 
